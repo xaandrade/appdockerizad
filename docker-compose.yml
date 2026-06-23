@@ -1,0 +1,14 @@
+services:
+  kafka:
+    image: apache/kafka:4.3.0
+    container_name: kafka-hola
+    ports:
+      - "9092:9092"
+
+  web:
+    build: .
+    container_name: app-hola
+    ports:
+      - "5000:5000"
+    depends_on:
+      - kafka
